@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 48a56aa46130ed144890e0e7751ab0f0
+  productGUID: 83d3a47cea86b464a9f8210c27c770fb
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -824,22 +824,7 @@ PlayerSettings:
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   il2cppStacktraceInformation: {}
-  managedStrippingLevel:
-    Android: 1
-    EmbeddedLinux: 1
-    GameCoreScarlett: 1
-    GameCoreXboxOne: 1
-    Nintendo Switch: 1
-    PS4: 1
-    PS5: 1
-    QNX: 1
-    ReservedCFE: 1
-    VisionOS: 1
-    WebGL: 1
-    Windows Store Apps: 1
-    XboxOne: 1
-    iPhone: 1
-    tvOS: 1
+  managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
@@ -930,10 +915,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 36c07fa3-50aa-4286-9aa5-daa0bfecb390
+  cloudProjectId: 379c41c2-66db-43d7-af5a-26a3254f90d7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Proyecto 2
+  projectName: Proyecto 2 2025-05-22_16-29-10
   organizationId: david_arkito
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
