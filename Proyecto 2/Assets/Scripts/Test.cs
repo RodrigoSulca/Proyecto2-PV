@@ -2,32 +2,59 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
+    public Transform target;            // El jugador o el punto de enfoque
+    public Vector3 offset = new Vector3(0f, 2f, -4f); // Offset de la cámara respecto al target
+    public float sensitivity = 3f;      // Sensibilidad del mouse
+    public Transform cameraTransform;
     public float speed;
-    public float rotationSpeed;
     private Animator animator;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
 
-    // Update is called once per frame
+    private float yaw = 0f; // rotación horizontal
+
+    void Start(){
+        animator = GetComponent<Animator>();
+    } 
     void Update()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
 
-        Vector3 movement = new Vector3(moveX, 0, moveZ);
+        // Acumulamos el ángulo horizontal (yaw)
+        yaw += mouseX;
 
-        if (movement.magnitude > 0.1f)
-        {
-            transform.Translate(speed * Time.deltaTime * movement.normalized, Space.World);
+        // Rotamos este objeto (el CameraHolder)
+        cameraTransform.rotation = Quaternion.Euler(0f, yaw, 0f);
 
-            transform.LookAt(transform.position + movement);
+        // Mantenemos la cámara en offset relativo al target
+        cameraTransform.position = target.position + cameraTransform.rotation * offset;
+        Movement();
+    }
+
+    private void Movement(){
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        // Direcciones relativas a la cámara
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        // Eliminamos el componente vertical
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+
+        // Dirección final
+        Vector3 direction = forward * v + right * h;
+
+        // Movimiento
+        transform.position += direction * speed * Time.deltaTime;
+        if (direction.magnitude > 0.1f){
+            // Rotación suave hacia la dirección del movimiento
+            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+            animator.SetBool("Walking",true);
+        }else{
+            animator.SetBool("Walking",false);
         }
-
-        animator.SetFloat("Speed", movement.magnitude);
-
-        
     }
 }
