@@ -1,0 +1,4 @@
+repository "2025-1.1-RPGDialogos-master/Proyecto 2@4674080673296@cloud"
+  path "/"
+    br "/main"
+    co "/main"

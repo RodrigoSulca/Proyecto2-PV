@@ -26,6 +26,8 @@
             wholeCrate.enabled = false;
             boxCollider.enabled = false;
             fracturedCrate.SetActive(true);
+            fracturedCrate.AddComponent<FadeAndDestroy>(); // Solo si no lo tiene ya en el prefab
+
         }
     }
 }
