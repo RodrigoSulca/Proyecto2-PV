@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Breakable
   - Door
+  - TextoLlave
   layers:
   - Default
   - TransparentFX
