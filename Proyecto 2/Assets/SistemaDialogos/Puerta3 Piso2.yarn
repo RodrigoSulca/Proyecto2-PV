@@ -1,0 +1,33 @@
+title: P3P2_Start
+---
+NPC: ...
+	-> ¿Cómo llego a la siguiente puerta?
+		<<jump Riddle6>>
+===
+
+title: P3P2_Riddle
+---
+NPC: ...
+NPC: Antes de ayer un joven tenía 18 años, pero el año que viene tendrá 21. ¿Qué día es hoy?
+	-> 29 de Febrero
+		<<jump P3P2_Wrong>>
+	-> 1 de Enero
+		<<jump P3P2_Right>>
+	-> 1 de Marzo
+		<<jump P3P2_Wrong>>
+	-> Volver
+		<<jump P3P2_Start>>
+===
+
+title: P3P2_Wrong
+---
+NPC: Incorrecto! Vuelve a intentarlo.
+	-> Intentar de nuevo
+		<<jump P3P2_Riddle>>
+===
+
+title: P3P2_Right
+---
+NPC: ¡Correcto! El cumpleaños del joven sería el 31 de Diciembre.
+NPC: La siguiente puerta es: /*Info de la siguiente puerta*/
+===

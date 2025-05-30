@@ -1,0 +1,32 @@
+title: P1P2_Start
+---
+NPC: ¡Felicidades por llegar al segundo piso!
+	-> ¿Cómo llego a la siguiente puerta?
+		<<jump P1P2_Riddle>>
+===
+
+title: P1P2_Riddle
+---
+NPC: ¿Qué es tan frágil que cuando dice su nombre lo rompe?
+	-> La Ventana
+		<<jump P1P2_Wrong>>
+	-> El Silencio
+		<<jump P1P2_Right>>
+	-> La Corrupción
+		<<jump P1P2_Wrong>>
+	-> Volver
+		<<jump Start>>
+===
+
+title: P1P2_Wrong
+---
+NPC: Incorrecto! Vuelve a intentarlo.
+	-> Intentar de nuevo
+		<<jump P1P2_Riddle>>
+===
+
+title: P1P2_Right
+---
+NPC: ¡Correcto! Cuando dices "Silencio", lo estas rompiendo.
+NPC: La siguiente puerta es: /*Info de la siguiente puerta*/
+===

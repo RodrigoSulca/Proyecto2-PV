@@ -1,0 +1,33 @@
+title: P2P2_Start
+---
+NPC: ¿Quién eres?
+	-> ¿Cómo llego a la siguiente puerta?
+		<<jump P2P2_Riddle>>
+===
+
+title: P2P2_Riddle
+---
+NPC: Hmm...
+NPC: Si me tienes, me quieres compartir. Si me compartes, ya no me tienes. ¿Qué soy?
+	-> Un Secreto
+		<<jump P2P2_Right>>
+	-> La Confianza
+		<<jump P2P2_Wrong>>
+	-> El Dinero
+		<<jump P2P2_Wrong>>
+	-> Volver
+		<<jump P2P2_Start>>
+===
+
+title: P2P2_Wrong
+---
+NPC: Incorrecto! Vuelve a intentarlo.
+	-> Intentar de nuevo
+		<<jump P2P2_Riddle>>
+===
+
+title: P2P2_Right
+---
+NPC: ¡Correcto! Un secreto deja de serlo cuando es compartido con otros.
+NPC: La siguiente puerta es: /*Info de la siguiente puerta*/
+===

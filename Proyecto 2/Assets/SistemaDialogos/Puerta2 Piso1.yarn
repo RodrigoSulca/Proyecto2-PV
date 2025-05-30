@@ -1,0 +1,33 @@
+title: P2P1_Start
+---
+NPC: ¡Oh, has encontrado mi puerta!
+	-> ¿Cómo llego a la siguiente puerta?
+		<<jump P2P1_Riddle>>
+===
+
+title: P2P1_Riddle
+---
+NPC: Ya sabes las reglas, primero responde el siguiente acertijo.
+NPC: Hay algo que, aunque te pertenezca, la gente siempre lo utiliza más que tú. ¿Qué es?
+	-> Mi Dinero
+		<<jump P2P1_Wrong>>
+	-> Mi Nombre
+		<<jump P2P1_Right>>
+	-> Mi Casa
+		<<jump P2P1_Wrong>>
+	-> Volver
+		<<jump P2P1_Start>>
+===
+
+title: P2P1_Wrong
+---
+NPC: Incorrecto! Vuelve a intentarlo.
+	-> Intentar de nuevo
+		<<jump P2P1_Riddle>>
+===
+
+title: P2P1_Right
+---
+NPC: ¡Correcto! La gente usa tu nombre con mas frecuencia que tu.
+NPC: La siguiente puerta es: /*Info de la siguiente puerta*/
+===

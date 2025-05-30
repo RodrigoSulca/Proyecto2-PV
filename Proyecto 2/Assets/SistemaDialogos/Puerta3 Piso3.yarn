@@ -1,0 +1,32 @@
+title: P3P3_Start
+---
+NPC: Te estaba esperando...
+	-> ¿Cómo llego a la siguiente puerta?
+		<<jump P3P3_Riddle>>
+===
+
+title: P3P3_Riddle
+---
+NPC: Estás escapando de un laberinto y tienes 3 puertas delante. La puerta de la izquierda lleva a un ardiente infierno. La puerta del centro a un tiburón asesino. Y la puerta de la derecha a un león hambriento. ¿Qué puerta escoges?
+	-> Centro
+		<<jump P3P3_Wrong>>
+	-> Izquierda
+		<<jump P3P3_Right>>
+	-> Derecha
+		<<jump P3P3_Wrong>>
+	-> Volver
+		<<jump P3P3_Start>>
+===
+
+title: P3P3_Wrong
+---
+NPC: Incorrecto! Vuelve a intentarlo.
+	-> Intentar de nuevo
+		<<jump P3P3_Riddle>>
+===
+
+title: P3P3_Right
+---
+NPC: ¡Correcto! Un Tiburón fuera del agua no es una amenaza.
+NPC: La siguiente puerta es: /*Info de la siguiente puerta*/
+===

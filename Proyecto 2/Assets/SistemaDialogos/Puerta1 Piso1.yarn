@@ -1,0 +1,48 @@
+title: P1P1_Start
+---
+NPC: ¡Bienvenido a la Torre de los Acertijos!
+	-> ¿Qué es este lugar?
+		<<jump P1P1_Info>>
+	-> ¿Cómo llego a la siguiente puerta?
+		<<jump P1P1_Riddle>>
+===
+
+title: P1P1_Info
+---
+NPC: Esta es la Torre de los Acertijos.
+NPC: Para completar la torre, tienes que llegar al último piso.
+NPC: Busca la escalera que esta detrás de una de las puertas.
+NPC: Puedes acceder a las puertas mediante el uso de llaves.
+NPC: Por último, se te dara un acertijo y una llave cada que abras una puerta, hasta encontrar la que contiene las escaleras.
+	-> Volver
+		<<jump P1P1_Start>>
+===
+
+title: P1P1_Riddle
+---
+NPC: Si quiere saber a que puerta debes ir ahora, responde correctamente el siguiente acertijo.
+NPC: Las personas siempre duermen menos en un mes del año. ¿Cuál es este mes?
+	-> Abril
+		<<jump P1P1_Wrong>>
+	-> Diciembre
+		<<jump P1P1_Wrong>>
+	-> Febrero
+		<<jump P1P1_Right>>
+	-> Volver
+		<<jump P1P1_Start>>
+===
+
+title: P1P1_Wrong
+---
+NPC: Incorrecto! Vuelve a intentarlo.
+	-> Intentar de nuevo
+		<<jump P1P1_Riddle>>
+	-> Volver
+		<<jump P1P1_Start>>
+===
+
+title: P1P1_Right
+---
+NPC: ¡Correcto! Febrero tiene menos dias, por lo que uno duerme menos ese mes.
+NPC: Aqui tienes la llave para pasar al siguiente piso.
+===
